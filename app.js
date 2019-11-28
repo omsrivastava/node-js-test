@@ -7,7 +7,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set('view engine', 'ejs');
 
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('public/assets'));
 
 app.get('/', function(req, res) {
   res.render('index');
