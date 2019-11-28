@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('includes/nav') %>
+  <h1>Contact Us</h1>
+  <p>You can contact us here...</p>
+
+  <form id="contat-form" method="POST" action="/contact">
+    <label for="who">Who do you want to contact?</label>
+    <input type="text" name="who" value="<%= qr.person %>">
+    <label for="department">Which department?</label>
+    <input type="text" name="department" value="<%= qr.dept %>">
+    <label for="email">Your email</label>
+    <input type="text" name="email">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
