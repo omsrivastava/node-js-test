@@ -1,22 +1,17 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
 
-var server = http.createServer(function(request, response) {
-  console.log('connecting: ', request.url);
-  if(request.url === '/home' || request.url === '/') {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream(__dirname + '/index.html').pipe(response);
-  } else if(request.url === '/contact') {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream(__dirname + '/contact.html').pipe(response);
-  } else if(request.url === '/users') {
-    var users = [{ name: 'Jack', age: 35 }, { name: 'Pecha', age: 48 }];
-    response.writeHead(200, {'Content-Type': 'application/json'});
-    response.end(JSON.stringify(users));
-  } else {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream(__dirname + '/404.html').pipe(response);
-  }
-}).listen(4200);
+var app = express();
 
-console.log('Server running at port: 4200');
+app.get('/', function(req, res) {
+  res.send('This is the home page!');
+});
+
+app.get('/contact', function(req, res) {
+  res.send('This is the Contact page');
+});
+
+app.get('/profile/:id', function(req, res) {
+  res.send('You requested to see the profile with id: ' + req.params.id);
+});
+
+app.listen(4200);

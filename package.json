@@ -4,6 +4,7 @@
   "description": "A sample node.js application",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,7 +15,8 @@
     "node",
     "node.js",
     "node-playlist",
-    "express"
+    "express",
+    "nodemon"
   ],
   "author": "Om Srivastava",
   "license": "MIT",
@@ -22,6 +24,9 @@
     "url": "https://github.com/omsrivastava/node-playlist/issues"
   },
   "homepage": "https://github.com/omsrivastava/node-playlist#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
     "nodemon": "^2.0.1"
   }
